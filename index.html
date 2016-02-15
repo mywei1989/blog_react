@@ -12,9 +12,11 @@
   <!-- endinject -->
   <script src="assets/global/plugins/react/react.js"></script>
   <script src="assets/global/plugins/react/react-dom.js"></script>
+  <script src="assets/global/plugins/react/react-with-addons.js"></script>
+  <script src="assets/global/plugins/react/JSXTransformer.js"></script>
   <script src="assets/global/plugins/react/browser.min.js"></script>
   <script src="assets/global/plugins/jquery-1.11.0.min.js"></script>
-  <script type="text/jsx" src="assets/blog/jsx/archives.jsx"></script>
+  
 </head>
 <body>
   <div class="container">
@@ -142,8 +144,8 @@
               </li>
             </ul>
           </div>
-          <div class="widget tags">
-            <ul class="tag-list">
+          <div id="tags" class="widget tags">
+            <!-- <ul class="tag-list">
               <li class="tag-list-item">
                 <a class="tag-list-link" href="/tag/javascript/">javascript</a>
               </li>
@@ -159,7 +161,7 @@
               <li class="tag-list-item">
                 <a class="tag-list-link" href="/tag/css/">css</a>
               </li>
-            </ul>
+            </ul> -->
           </div>
           <div id="archives" class="widget archives">
             <!-- <ul class="archive-list">
@@ -376,51 +378,18 @@
     </div>
   </div>
 </body>
-<script type="text/babel">
-var ArchiveList = React.createClass({
-  getInitialState: function() {
-    return {
-      loading: true,
-      error: null,
-      data: null
-    };
-  },
-
-  componentDidMount() {
-    this.props.promise.then(
-      value => this.setState({loading: false, data: value}),
-      error => this.setState({loading: false, error: error}));
-  },
-
-  render: function() {
-      if(this.state.loading){
-        return <span>Loading...</span>
-      }else if(this.state.error != null){
-        return <span>Error:{this.state.error.message}</span>
-      }else{
-        var archives = this.state.data;
-        var archivelist = archives.map(function (archive) {
-          return (
-            <li className="archive-list-item">
-              <a className="archive-list-link" href="/{archive.year}/{archive.month}/">{archive.monthFormat} {archive.year}</a>
-              <span className="archive-list-count">{archive.count}</span>
-            </li>
-          );
-        });
-        return (
-          <ul class="archive-list">
-            {archivelist}
-          </ul>
-        );
-      }
-  }
-});
-
-
-
+<script type="text/jsx" src="assets/blog/jsx/archives.js"></script>
+<script type="text/jsx" src="assets/blog/jsx/tags.js"></script>
+<script type="text/jsx">
 ReactDOM.render(
   <ArchiveList promise={$.getJSON('http://localhost:3001/getArchive')} />,
   document.getElementById('archives')
 );
+
+ReactDOM.render(
+  <TagList promise={$.getJSON('http://localhost:3001/getAllTag')} />,
+  document.getElementById('tags')
+);
+
 </script>
 </html>

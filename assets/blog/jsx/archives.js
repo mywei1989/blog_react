@@ -22,17 +22,18 @@ var ArchiveList = React.createClass({
         var archives = this.state.data;
         var archivelist = archives.map(function (archive) {
           return (
-            <li class="archive-list-item">
-              <a class="archive-list-link" href="/{archive.year}/{archive.month}/">{archive.monthFormat}</a>
-              <span class="archive-list-count">{archive.count}</span>
+            <li className="archive-list-item" key={archive.dateCalc}>
+              <a className="archive-list-link" href={"/"+archive.year+"/"+archive.month+"/"}>{archive.monthFormat} {archive.year}</a>
+              <span className="archive-list-count">{archive.count}</span>
             </li>
           );
         });
         return (
-          <ul class="archive-list">
+          <ul className="archive-list" >
             {archivelist}
           </ul>
         );
       }
   }
 });
+
