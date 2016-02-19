@@ -1,20 +1,24 @@
-var ArchiveList = React.createClass({
-  getInitialState: function() {
-    return {
+import React from 'react';
+import $ from 'jquery';
+
+class ArchiveList extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
       loading: true,
       error: null,
       data: null
     };
-  },
+  }
 
-  componentDidMount() {
+  componentDidMount(){
     this.props.promise.then(
-      value => this.setState({loading: false, data: value}),
-      error => this.setState({loading: false, error: error}));
-  },
+    value => this.setState({loading: false, data: value}),
+    error => this.setState({loading: false, error: error}));
+  }
 
-  render: function() {
-      if(this.state.loading){
+  render(){
+     if(this.state.loading){
         return <span>Loading...</span>
       }else if(this.state.error != null){
         return <span>Error:{this.state.error.message}</span>
@@ -35,5 +39,6 @@ var ArchiveList = React.createClass({
         );
       }
   }
-});
+}
 
+export default ArchiveList;

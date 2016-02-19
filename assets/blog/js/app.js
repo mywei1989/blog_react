@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import Mytest from './mytest';
 import TagList from './tags';
-
-
+import ArchiveList from './archives';
 
 export default class App extends React.Component {
   render() {
@@ -57,6 +56,7 @@ export default class App extends React.Component {
             <TagList promise={$.getJSON('http://localhost:3001/getAllTag')}/>
           </div>
           <div id="archives" className="widget archives">
+            <ArchiveList promise={$.getJSON('http://localhost:3001/getArchive')}/>
           </div>
           <div className="widget text-content">
             <p>

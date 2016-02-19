@@ -1,17 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-
-
 class TagList extends React.Component {
-  /*getInitialState(){
-    return {
-      loading: true,
-      error: null,
-      data: null
-    };
-  }*/
-
   constructor(props){
     super(props);
     this.state = {
