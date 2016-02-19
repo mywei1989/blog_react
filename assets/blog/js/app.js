@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-//var $ = require('jquery');
 import $ from 'jquery';
-import Mytest from './mytest';
+
+//import Mytest from './mytest';
+import Navigation from './navigation';
+import Information from './information';
 import TagList from './tags';
 import ArchiveList from './archives';
 
@@ -13,23 +15,7 @@ export default class App extends React.Component {
           <h1>null的博客</h1>
         </div>
         <div className="columns">
-          <div className="navigation">
-            <nav className="menus-main">
-              <a href="/" className="favicon">
-                <img alt="null在吹牛逼" src="./assets/blog/images/favicon.png"/>
-              </a>
-              <a href="/">关于</a>
-              <a href="/">简历</a>
-              <a href="/">链接</a>
-              <a href="/">书单</a>
-              <a href="/">碎语</a>
-              <a href="/">所有日志</a>
-            </nav>
-            <nav className="right menus-right">
-              <a href="/"></a>
-              <a target="_blank" href="https://github.com/mywei1989">fork on Github</a>
-            </nav>
-          </div>
+          <Navigation />
         </div>
         <div className="columns">
         <div className="block-body column three-fourths">
@@ -42,16 +28,7 @@ export default class App extends React.Component {
           </div>
         </div>
         <div className="block-sidebar column one-fourth">
-          <div className="widget text-content">
-            <p>家穷人丑一米六九小学学籍农村户口?</p>
-            <ul>
-              <li>这是个悲伤的故事</li>
-              <li>
-                <a href="http://www.cnblogs.com/nullcnb">独立博客</a>
-                作者
-              </li>
-            </ul>
-          </div>
+          <Information />
           <div id="tags" className="widget tags">
             <TagList promise={$.getJSON('http://localhost:3001/getAllTag')}/>
           </div>

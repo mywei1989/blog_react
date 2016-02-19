@@ -10,8 +10,8 @@ module.exports = {
     },
     module: {
         loaders: [
-          {test: /\.js?$/,loaders: ['babel-loader?presets[]=es2015&presets[]=react'],include: path.join(__dirname, '.')}
-
+          {test: /\.js?$/,loaders: ['babel-loader?presets[]=es2015&presets[]=react'],include: path.join(__dirname, '.')},
+          {test: /\.(jpg|png)$/, loader: "url?limit=8192"}
         ]
     }
 }
