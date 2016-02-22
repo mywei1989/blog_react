@@ -7,7 +7,7 @@ class Navigation extends React.Component{
 			<div className="navigation clearfix">
 				<nav className="menus-main left">
 					<a href="/" className="favicon">
-						
+						<img src="./assets/blog/images/favicon.png" alt="null在吹牛逼" title="null在吹牛逼" />
 					</a>
 					<a href="/">关于</a>
 					<a href="/">简历</a>
@@ -17,18 +17,17 @@ class Navigation extends React.Component{
 					<a href="/">所有日志</a>
 				</nav>
 				<nav className="menus-right right">
-					
+					<a target="_blank" href="http://git.oschina.net/mywei1989" className="favicon">
+           <img src="./assets/blog/images/gitosc.png" alt="myGitosc" title="myGitosc" />
+          </a>
+          <a target="_blank" href="https://github.com/mywei1989" className="favicon">
+           <img src="./assets/blog/images/github.png" alt="myGithub" title="myGithub" />
+          </a>
 				</nav>
 			</div>
 		)
 	}
 }
-//<img alt="null在吹牛逼" src="../images/favicon.png"/>
-//<a target="_blank" href="http://git.oschina.net/mywei1989" className="favicon">
-          //  <img alt="myGitosc" src="../images/gitosc.png">
-          //</a>
-          //<a target="_blank" href="https://github.com/mywei1989" className="favicon">
-          //  <img alt="myGithub" src="../images/github.png">
-          //</a>
+
 
 export default Navigation;
