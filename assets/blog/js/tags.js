@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import { Link } from 'react-router';
 
 class TagList extends React.Component {
   constructor(props){
@@ -27,7 +27,7 @@ class TagList extends React.Component {
       var taglist = tags.map(function (tag) {
         return (
           <li className="tag-list-item" key={tag.tag}> 
-            <a className="tag-list-link" href={"/tag/"+tag.tag+"/"}>{tag.tagName}</a>
+            <Link className="tag-list-link" to={"/tag"+"/"+tag.tag}>{tag.tagName}</Link>
           </li>
           );
       });
@@ -41,3 +41,5 @@ class TagList extends React.Component {
 }
 
 export default TagList;
+
+//<a className="tag-list-link" href={"/tag/"+tag.tag+"/"}>{tag.tagName}</a>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router';
 import $ from 'jquery';
-import History from 'history';
 
 import Navigation from './navigation';
 import Information from './information';
@@ -42,6 +41,8 @@ export default class App extends React.Component {
         </div>
         <div className="columns">
         <div className="block-body column three-fourths">
+          {this.props.children}
+
           <div className="archive-pagination">
             <div className="paginator">
               <span className="page-number current">1</span>
