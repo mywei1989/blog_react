@@ -25,9 +25,7 @@ export default class App extends React.Component {
         </div>
         <div className="columns">
         <div className="block-body column three-fourths">
-          {this.props.children}
-
-          
+          {this.props.children}   
         </div>
         <div className="block-sidebar column one-fourth">
           <Information />

@@ -16,8 +16,8 @@ render((
 	<Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={ArticleList}/>
-      <Route path="/tag/:tag" component={ArticleList}/>
-
+      <Route path="/tag/:tag" component={ArticleList} to={{queryType:'tag'}}/>
+      <Route path="/tag/:tag/page/:page" component={ArticleList} />
     </Route>
   </Router>
 ),document.getElementById('root'));
