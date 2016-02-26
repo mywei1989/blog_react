@@ -81,7 +81,7 @@ class ArticleList extends  React.Component{
     return(
         <div>
         <h3>{this.props.params.tag}</h3>
-          <Pagination pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} prefix={this.state.prefix}/>
+          <Pagination pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} prefix={this.state.prefix} />
         </div>
       );
   }

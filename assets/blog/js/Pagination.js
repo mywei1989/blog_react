@@ -53,7 +53,7 @@ class Pagination extends React.Component{
     }
     pageHtml.push(<span className="page-number current">{this.props.pageIndex}</span>);
     if(this.props.pageCount - this.props.pageIndex >= 4){
-      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex-1)+"/"}>{this.props.pageIndex+1}</a>);
+      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+1)+"/"}>{this.props.pageIndex+1}</a>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+2)+"/"}>{this.props.pageIndex+2}</a>);
       pageHtml.push(<span className="space">…</span>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+this.props.pageCount+"/"}>{this.props.pageCount}</a>);
