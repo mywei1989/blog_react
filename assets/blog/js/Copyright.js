@@ -19,7 +19,7 @@ class Copyright extends React.Component{
           <a target="_blank" href="https://www.mongodb.com" className="favicon">
             <img alt="mongodb" src={mongodb} />
           </a>
-          <a target="_blank" href="https://github.com/mywei1989/blog" className="favicon">
+          <a target="_blank" href="https://github.com/mywei1989/blog_react" className="favicon">
             <img alt="github" src={github} />
           </a>
         </div>
