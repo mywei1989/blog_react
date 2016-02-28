@@ -31,7 +31,6 @@ class ArticleList extends  React.Component{
     let self = this;
     let url = Settings.getServiceUrl();
     let queryType = _queryType || this.props.route.to.queryType;
-    console.log(queryType);
     switch(queryType){
       case '/':
         if(this.props.params.pageIndex){
@@ -39,8 +38,7 @@ class ArticleList extends  React.Component{
         }
       break;
       case 'tag':
-        console.log(queryType);
-        var keyword = _keyword || this.props.params.tag;
+        let keyword = _keyword || this.props.params.tag;
         url = url + '/tag/' + keyword + '/';
         if(this.props.params.pageIndex){
           url = url + 'page/' + this.props.params.pageIndex + '/';
@@ -53,7 +51,6 @@ class ArticleList extends  React.Component{
         }
       break;
     }
-    console.log(url);
     $.ajax({
       url:url,
       type:'GET'
