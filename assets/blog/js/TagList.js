@@ -27,7 +27,7 @@ class TagList extends React.Component {
       var taglist = tags.map(function (tag) {
         return (
           <li className="tag-list-item" key={tag.tag}> 
-            <Link className="tag-list-link" to={"/tag"+"/"+tag.tag}>{tag.tagName}</Link>
+            <Link className="tag-list-link" to={"/tag"+"/"+tag.tag+"/"}>{tag.tagName}</Link>
           </li>
           );
       });

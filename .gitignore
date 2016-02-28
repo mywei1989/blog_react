@@ -36,3 +36,5 @@ topic
 
 bundle.js
 bundle.js.map
+
+*.bak
