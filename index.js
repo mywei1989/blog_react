@@ -19,9 +19,13 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={ArticleList} to={{queryType:'/'}}/>
       <Route path="/page/:pageIndex" component={ArticleList} to={{queryType:'/'}}/>
+      <Route path="/tag/:tag" component={ArticleList} to={{queryType:'tag'}}/>
       <Route path="/tag/:tag/" component={ArticleList} to={{queryType:'tag'}}/>
+      <Route path="/tag/:tag/page/:pageIndex" component={ArticleList} to={{queryType:'tag'}}/>
       <Route path="/tag/:tag/page/:pageIndex/" component={ArticleList} to={{queryType:'tag'}}/>
+      <Route path="/:year/:month" component={ArticleList} to={{queryType:'archive'}}/>
       <Route path="/:year/:month/" component={ArticleList} to={{queryType:'archive'}}/>
+      <Route path="/:year/:month/page/:pageIndex" component={ArticleList} to={{queryType:'archive'}}/>
       <Route path="/:year/:month/page/:pageIndex/" component={ArticleList} to={{queryType:'archive'}}/>
       <Route path="/:year/:month/:name" component={Article} to={{queryType:'article'}} />
     </Route>

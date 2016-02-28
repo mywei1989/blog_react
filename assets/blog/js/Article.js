@@ -60,7 +60,7 @@ class Article extends React.Component{
             <ul className="tags right">
               {
                 this.state.tags.map(function(item,index){
-                  return (<li><Link to={"/tag"+"/"+item.tag}>{item.tagName}</Link></li>)
+                  return (<li><Link to={"/tag"+"/"+item.tag+"/"}>{item.tagName}</Link></li>)
                 })
               }
             </ul>
@@ -82,7 +82,7 @@ class Article extends React.Component{
             <ul className="tags right">
               {
                 this.props.articleModel.tags.map(function(item,index){
-                  return (<li key={index}><Link to={"/tag"+"/"+item.tag}>{item.tagName}</Link></li>)
+                  return (<li key={index}><Link to={"/tag"+"/"+item.tag+"/"}>{item.tagName}</Link></li>)
                 })
               }
             </ul>
