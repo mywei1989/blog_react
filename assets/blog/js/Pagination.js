@@ -49,24 +49,24 @@ class Pagination extends React.Component{
     if(this.props.pageIndex===2){
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/"} key="1">1</a>);
     }else if(this.props.pageIndex===3){
-      pageHtml.push(<a className="page-number" href={this.props.prefix+"/"}>1</a>);
+      pageHtml.push(<a className="page-number" href={this.props.prefix+"/"} key="1">1</a>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/2/"} key="2">2</a>);
     }else if(this.props.pageIndex===4){
-      pageHtml.push(<a className="page-number" href="/">1</a>);
+      pageHtml.push(<a className="page-number" href="/" key="1">1</a>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/2/" } key="2">2</a>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/3/" } key="3">3</a>);
     }else if(this.props.pageIndex===5){
       pageHtml.push(<a className="page-number" href="/" key="1">1</a>);
-      pageHtml.push(<span className="space">…</span>);
+      pageHtml.push(<span className="space" key="...">…</span>);
       for(let i=this.props.pageIndex-2;i<this.props.pageIndex;i++){
         pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+i+"/" } key={i}>{i}</a>);
       } 
     }
-    pageHtml.push(<span className="page-number current" key={this.props.pageIndex}>{this.props.pageIndex}</span>);
+    pageHtml.push(<span className="page-number current" key={this.props.pageIndex} key={this.props.pageIndex}>{this.props.pageIndex}</span>);
     if(this.props.pageCount - this.props.pageIndex >= 4){
-      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+1)+"/"} key={this.props.pageIndex+1}>{this.props.pageIndex+1}</a>);
-      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+2)+"/"} key={this.props.pageIndex+2}>{this.props.pageIndex+2}</a>);
-      pageHtml.push(<span className="space">…</span>);
+      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+1)+"/"} key={this.props.pageIndex+1} key={this.props.pageIndex+1} >{this.props.pageIndex+1}</a>);
+      pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+(this.props.pageIndex+2)+"/"} key={this.props.pageIndex+2} key={this.props.pageIndex+2} >{this.props.pageIndex+2}</a>);
+      pageHtml.push(<span className="space" key="...">…</span>);
       pageHtml.push(<a className="page-number" href={this.props.prefix+"/page/"+this.props.pageCount+"/"} key={this.props.pageCount}>{this.props.pageCount}</a>);
     }else{
       for(let i=this.props.pageIndex+1;i<=this.props.pageCount;i++){

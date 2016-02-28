@@ -78,12 +78,11 @@ class Article extends React.Component{
             </h2>
           </header>
           <div className="article-meta clearfix">
-            <time className="left">{this.props.articleModel.timeStr}</time>
-            <ul className="tags left"></ul>
+            <time className="left" >{this.props.articleModel.timeStr}</time>
             <ul className="tags right">
               {
                 this.props.articleModel.tags.map(function(item,index){
-                  return (<li><Link to={"/tag"+"/"+item.tag}>{item.tagName}</Link></li>)
+                  return (<li key={index}><Link to={"/tag"+"/"+item.tag}>{item.tagName}</Link></li>)
                 })
               }
             </ul>

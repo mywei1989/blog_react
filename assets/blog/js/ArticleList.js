@@ -21,13 +21,7 @@ class ArticleList extends  React.Component{
     this.getArticleList(this.props);
   }
   componentWillReceiveProps(nextProps){
-    console.log('ArticleList.componentWillReceiveProps');
-    console.log(nextProps);
     this.getArticleList(nextProps);
-    /*this.getArticleList(this.props.route.to.queryType,
-                        nextProps.params[this.props.route.to.queryType],
-                        nextProps.params['pageIndex']||1
-      );*/
   }
 
   getArticleList(props){
@@ -69,49 +63,6 @@ class ArticleList extends  React.Component{
     }.bind(self));
   }
 
-  /*getArticleList(_queryType,_keyword,_pageIndex){
-    console.log(_queryType);
-    console.log(_keyword);
-    console.log(_pageIndex);
-    let self = this;
-    let url = Settings.getServiceUrl();
-    let queryType = _queryType || this.props.route.to.queryType;
-    switch(queryType){
-      case '/':
-        if(this.props.params.pageIndex){
-          url = url + '/page/' + this.props.params.pageIndex + '/';
-        }
-      break;
-      case 'tag':
-        let keyword = _keyword || this.props.params.tag;
-        url = url + '/tag/' + keyword + '/';
-        if(this.props.params.pageIndex){
-          url = url + 'page/' + this.props.params.pageIndex + '/';
-        }
-      break;
-      case 'archive':
-        url = url + '/' + this.props.params.year + '/' + this.props.params.month + '/';
-        if(this.props.params.pageIndex){
-          url = url + 'page/' + this.props.params.pageIndex + '/';
-        }
-      break;
-    }
-    console.log(url);
-    $.ajax({
-      url:url,
-      type:'GET',
-      cache:false
-    }).done(function(result){
-        self.setState({
-          queryType:queryType,
-          list:result.list,
-          pageIndex: result.pagination.pageIndex,
-          pageCount: result.pagination.pageCount,
-          prefix: result.pagination.prefix||''
-        });
-        console.log(result)
-    }.bind(self));
-  }*/
 
 
 
