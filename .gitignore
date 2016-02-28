@@ -37,4 +37,7 @@ topic
 bundle.js
 bundle.js.map
 
+settings.js
+
 *.bak
+

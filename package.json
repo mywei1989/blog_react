@@ -9,7 +9,8 @@
     "react-router"
   ],
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base . --history-api-fallback --port 3002"
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback --port 3002",
+    "release": "webpack -p"
   },
   "author": "null",
   "license": "MIT",
