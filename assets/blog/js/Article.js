@@ -27,18 +27,22 @@ class Article extends React.Component{
     let self = this;
     let url = Settings.getServiceUrl();
 
-    url = url + '/' + this.props.params.year + '/' + this.props.params.month + '/' + this.props.params.name;
-    $.ajax({
-      url:url,
-      type:'GET',
-    }).done(function(result){
-      self.setState({
-        title:result.article.title,
-        timeStr:result.article.timeStr,
-        tags:result.article.tags,
-        post:result.article.post
-      });
-    }.bind(self));
+    //判断是否是从router进入 从router进入这是是undefined
+    if(this.props.params){
+      url = url + '/' + this.props.params.year + '/' + this.props.params.month + '/' + this.props.params.name;
+      $.ajax({
+        url:url,
+        type:'GET',
+      }).done(function(result){
+        self.setState({
+          title:result.article.title,
+          timeStr:result.article.timeStr,
+          tags:result.article.tags,
+          post:result.article.post
+        });
+      }.bind(self));
+    }
+    
   }
 
   render(){
@@ -74,7 +78,7 @@ class Article extends React.Component{
             </h2>
           </header>
           <div className="article-meta clearfix">
-            <time className="left">2015年9月29日</time>
+            <time className="left">{this.props.articleModel.timeStr}</time>
             <ul className="tags left"></ul>
             <ul className="tags right">
               {

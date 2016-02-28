@@ -18,16 +18,61 @@ class ArticleList extends  React.Component{
     };
   }
   componentDidMount(){
-    this.getArticleList()
+    this.getArticleList(this.props);
   }
   componentWillReceiveProps(nextProps){
-    this.getArticleList(this.props.route.to.queryType,
+    console.log('ArticleList.componentWillReceiveProps');
+    console.log(nextProps);
+    this.getArticleList(nextProps);
+    /*this.getArticleList(this.props.route.to.queryType,
                         nextProps.params[this.props.route.to.queryType],
                         nextProps.params['pageIndex']||1
-      );
+      );*/
   }
 
-  getArticleList(_queryType,_keyword,_pageIndex){
+  getArticleList(props){
+    let self = this;
+    let url = Settings.getServiceUrl();
+    let queryType = props.route.to.queryType;
+    switch(queryType){
+      case '/':
+        if(props.params.pageIndex){
+          url = url + '/page/' + props.params.pageIndex + '/';
+        }
+      break;
+      case 'tag':
+        let keyword = props.params.tag;
+        url = url + '/tag/' + keyword + '/';
+        if(props.params.pageIndex){
+          url = url + 'page/' + props.params.pageIndex + '/';
+        }
+      break;
+      case 'archive':
+        url = url + '/' + props.params.year + '/' + props.params.month + '/';
+        if(props.params.pageIndex){
+          url = url + 'page/' + props.params.pageIndex + '/';
+        }
+      break;
+    }
+    $.ajax({
+      url:url,
+      type:'GET',
+      cache:false
+    }).done(function(result){
+        self.setState({
+          queryType:queryType,
+          list:result.list,
+          pageIndex: result.pagination.pageIndex,
+          pageCount: result.pagination.pageCount,
+          prefix: result.pagination.prefix||''
+        });
+    }.bind(self));
+  }
+
+  /*getArticleList(_queryType,_keyword,_pageIndex){
+    console.log(_queryType);
+    console.log(_keyword);
+    console.log(_pageIndex);
     let self = this;
     let url = Settings.getServiceUrl();
     let queryType = _queryType || this.props.route.to.queryType;
@@ -51,9 +96,11 @@ class ArticleList extends  React.Component{
         }
       break;
     }
+    console.log(url);
     $.ajax({
       url:url,
-      type:'GET'
+      type:'GET',
+      cache:false
     }).done(function(result){
         self.setState({
           queryType:queryType,
@@ -62,8 +109,9 @@ class ArticleList extends  React.Component{
           pageCount: result.pagination.pageCount,
           prefix: result.pagination.prefix||''
         });
+        console.log(result)
     }.bind(self));
-  }
+  }*/
 
 
 

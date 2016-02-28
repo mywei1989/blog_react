@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import { Link } from 'react-router';
 
 class ArchiveList extends React.Component{
   constructor(props){
@@ -27,7 +27,7 @@ class ArchiveList extends React.Component{
         var archivelist = archives.map(function (archive) {
           return (
             <li className="archive-list-item" key={archive.dateCalc}>
-              <a className="archive-list-link" href={"/"+archive.year+"/"+archive.month+"/"}>{archive.monthFormat} {archive.year}</a>
+              <Link className="archive-list-link" to={"/"+archive.year+"/"+archive.month+"/"}>{archive.monthFormat} {archive.year}</Link>
               <span className="archive-list-count">{archive.count}</span>
             </li>
           );
