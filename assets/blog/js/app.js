@@ -7,6 +7,7 @@ import $ from 'jquery';
 import Settings from '../../../settings';
 import Navigation from './Navigation';
 import Information from './Information';
+import Copyright from './Copyright';
 import TagList from './TagList';
 import ArchiveList from './ArchiveList';
 
@@ -36,10 +37,7 @@ export default class App extends React.Component {
             <ArchiveList promise={$.getJSON(Settings.getServiceUrl()+'/getArchive')}/>
           </div>
           <div className="widget text-content">
-            <p>
-              该博客使用基于 &nbsp;
-              <a href="http://www.expressjs.com">express</a>
-            </p>
+            <Copyright />
           </div>
         </div>
     </div>

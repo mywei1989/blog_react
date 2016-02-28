@@ -2,14 +2,15 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'
 
-
+import normalize from './assets/global/plugins/normalize.css/normalize';
+import sunburst from './assets/global/plugins/highlight.js/styles/sunburst';
+import style from './assets/blog/css/style';
 
 import App from './assets/blog/js/App';
 import Navigation from './assets/blog/js/Navigation';
 import Information from './assets/blog/js/Information';
 import TagList from './assets/blog/js/TagList';
 import ArchiveList from './assets/blog/js/ArchiveList';
-
 import ArticleList from './assets/blog/js/ArticleList';
 import Article from './assets/blog/js/Article';
 

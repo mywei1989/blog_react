@@ -287,6 +287,19 @@ article .markdown-body img{
   margin-bottom: 0.4em;
 }
 
+.block-sidebar .widget p a{
+  float:left;
+  width:32px;
+  height:30px;
+  text-align: center;
+}
+.block-sidebar .widget .copyright div.logos a{
+  float:left;
+  width:32px;
+  height:30px;
+  text-align: center;
+}
+
 .block-sidebar .widget.text-content ul {
   padding-left: 10px;
   font-size: 13px;
