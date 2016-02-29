@@ -19,7 +19,9 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <div className="columns page-header">
-          <h1>null的博客</h1>
+          <div>
+            <h1>null的博客</h1>
+          </div>
         </div>
         <div className="columns">
           <Navigation />
