@@ -28,6 +28,7 @@ render((
       <Route path="/:year/:month/page/:pageIndex" component={ArticleList} to={{queryType:'archive'}}/>
       <Route path="/:year/:month/page/:pageIndex/" component={ArticleList} to={{queryType:'archive'}}/>
       <Route path="/:year/:month/:name" component={Article} to={{queryType:'article'}} />
+      <Route path="/:info" component={Article} to={{queryType:'info'}} />
     </Route>
   </Router>
 ),document.getElementById('root'));

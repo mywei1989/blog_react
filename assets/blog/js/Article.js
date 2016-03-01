@@ -20,16 +20,26 @@ class Article extends React.Component{
   }
 
   componentDidMount(){
-    this.getArticle();
+    this.getArticle(this.props);
   }
 
-  getArticle(){
+  componentWillReceiveProps(nextProps){
+    this.getArticle(nextProps);
+  }
+
+  getArticle(props){
     let self = this;
     let url = Settings.getServiceUrl();
 
     //判断是否是从router进入 从router进入这是是undefined
-    if(this.props.params){
-      url = url + '/' + this.props.params.year + '/' + this.props.params.month + '/' + this.props.params.name;
+    if(props.params){
+      let queryType = props.route.to.queryType;
+      if(queryType!='info'){
+        url = url + '/' + props.params.year + '/' + props.params.month + '/' + props.params.name;
+      }else{
+        url = url + '/' + props.params.info;
+      }
+      
       $.ajax({
         url:url,
         type:'GET',
