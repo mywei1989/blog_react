@@ -3,13 +3,15 @@ http://react.nullcn.com
 
 ##
 
-## 安装
+## 安装依赖包
 ```
 npm install
 ```
 ## 运行
 ```
+//http://localhost:3002
 npm start
+
 ```
 ## 打包
 ```
